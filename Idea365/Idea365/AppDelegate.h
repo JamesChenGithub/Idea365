@@ -1,16 +1,20 @@
 //
 //  AppDelegate.h
-//  Idea365
+//  Fitel
 //
-//  Created by James on 15/4/20.
-//  Copyright (c) 2015年 James Chen. All rights reserved.
+//  Created by James on 2/17/15.
+//  Copyright (c) 2015 James. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+@interface AppDelegate : BaseAppDelegate
+{
+    MKNetworkEngine *_cacheEngine;
+}
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, readonly) MKNetworkEngine *cacheEngine;
 
 
 @end

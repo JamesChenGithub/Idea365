@@ -1,45 +1,104 @@
 //
 //  AppDelegate.m
-//  Idea365
+//  Fitel
 //
-//  Created by James on 15/4/20.
-//  Copyright (c) 2015年 James Chen. All rights reserved.
+//  Created by James on 2/17/15.
+//  Copyright (c) 2015 James. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
+
+@interface TabBarController : UITabBarController
+@end
+
+@implementation TabBarController
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+//    UIViewController *topnav = self.selectedViewController;
+//    if ([topnav isKindOfClass:[UINavigationController class]]) {
+//        UINavigationController *nav = (UINavigationController *)topnav;
+//        if ([nav.topViewController isKindOfClass:[TrainViewController class]])
+//        {
+//            return UIInterfaceOrientationMaskAll;
+//        }
+//    }
+    
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
+}
+
+
+
+@end
+
+
+
 @interface AppDelegate ()
+
+@property (nonatomic, strong) UITabBarController *tabBarController;
 
 @end
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    return YES;
+- (UINavigationController *)navigationViewController
+{
+    
+    UINavigationController *nav = (UINavigationController *)(self.tabBarController.selectedViewController);
+    return nav;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)enterMainUI
+{
+//    [[UITabBar appearance] setBackgroundImage:kTabBar_Background_Image];
+//    [[UITabBar appearance] setTintColor:kThemeColor];
+//    
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kBlackColor, NSForegroundColorAttributeName,nil] forState:UIControlStateNormal];
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kThemeColor, NSForegroundColorAttributeName,nil] forState:UIControlStateSelected];
+//    
+//    MainViewController *mainvc = [NSObject loadClass:[MainViewController class]];
+//    NavigationViewController *mainNav = [[NavigationViewController alloc] initWithRootViewController:mainvc];
+//    mainNav.interactivePopGestureRecognizer.enabled = YES;
+//    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:kTabBar_Main_Title_Str image:kTabBar_Main_Normal_Icon selectedImage:kTabBar_Main_Select_Icon];
+//    mainvc.title = mainNav.tabBarItem.title;
+//    
+//    CalculateViewController *disvc = [NSObject loadClass:[CalculateViewController class]];
+//    NavigationViewController *disNav = [[NavigationViewController alloc] initWithRootViewController:disvc];
+//    disNav.interactivePopGestureRecognizer.enabled = YES;
+//    disNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:kTabBar_Calculate_Title_Str image:kTabBar_Discovery_Normal_Icon selectedImage:kTabBar_Discovery_Select_Icon];
+//    disvc.title = disNav.tabBarItem.title;
+//    
+//    SettingViewController *minevc = [NSObject loadClass:[SettingViewController class]];
+//    NavigationViewController *mineNav = [[NavigationViewController alloc] initWithRootViewController:minevc];
+//    mineNav.interactivePopGestureRecognizer.enabled = YES;
+//    mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:kTabBar_Setting_Title_Str image:kTabBar_Mine_Normal_Icon selectedImage:kTabBar_Mine_Select_Icon];
+//    minevc.title = mineNav.tabBarItem.title;
+//    
+//    self.tabBarController = [[TabBarController alloc] init];
+//    [self.tabBarController setViewControllers:@[mainNav, disNav, mineNav]];
+//    self.window.rootViewController = self.tabBarController;
+    
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    [super applicationWillTerminate:application];
+    [_cacheEngine cancelAllOperations];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (MKNetworkEngine *)cacheEngine
+{
+    if (!_cacheEngine)
+    {
+        _cacheEngine = [[MKNetworkEngine alloc] initWithHostName:@"112.74.104.11"];
+//        [_cacheEngine useCache];
+    }
+    return _cacheEngine;
 }
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 @end

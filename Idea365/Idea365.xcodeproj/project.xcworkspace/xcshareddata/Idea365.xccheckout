@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FBED8361-F38A-4219-9EAB-6C226C5B663F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Idea365</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>92B934047C7D48B1C31A8236A3F9D2FE07984175</key>
+		<string>https://github.com/JamesChenGithub/Idea365.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Idea365/Idea365.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>92B934047C7D48B1C31A8236A3F9D2FE07984175</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JamesChenGithub/Idea365.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>92B934047C7D48B1C31A8236A3F9D2FE07984175</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>92B934047C7D48B1C31A8236A3F9D2FE07984175</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Idea365</string>
+		</dict>
+	</array>
+</dict>
+</plist>
